@@ -11,13 +11,21 @@ const itemLista = document.createElement("li");
 
 //funcionalidades do botão de adicionar
 botaoAdd.addEventListener("click", function(){
-    //quando o botão for clicado, o texto inserido no input será armazenado no array
-    opcoes.push(entrada.value);
 
-    const item = document.createElement("li"); //cria um item para a lista
+    const opcao = entrada.value.trim(); //guarda o texto limpo de espaços externos
+    //validação do texto inserido
+    if(opcao === ""){
+        alert("O campo não pode estar vazio!")
+    } else{
 
-    item.textContent = entrada.value; //adiciona ao item da lista o dado inserido
-    listagem.appendChild(item); //adiciona esse item a lista
+        //quando o botão for clicado, o texto inserido no input será armazenado no array
+        opcoes.push(opcao);
+
+        const item = document.createElement("li"); //cria um item para a lista
+
+        item.textContent = opcao; //adiciona ao item da lista o dado inserido
+        listagem.appendChild(item); //adiciona esse item a lista
+        }
 });
 
 //funcionalidades do botão de girar
