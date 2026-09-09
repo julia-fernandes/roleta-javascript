@@ -9,26 +9,38 @@ const sorteado = document.getElementById("resultado");
 const listagem = document.getElementById("listagem");
 const itemLista = document.createElement("li");
 
-//funcionalidades do botão de adicionar
-botaoAdd.addEventListener("click", function(){
+
+function adicionarOpcao(){
 
     const opcao = entrada.value.trim(); //guarda o texto limpo de espaços externos
     //validação do texto inserido
     if(opcao === ""){
-        alert("O campo não pode estar vazio!")
+        alert("O campo não pode estar vazio!");
     } else{
 
-        //quando o botão for clicado, o texto inserido no input será armazenado no array
+        //armazena o texto inserido no array
         opcoes.push(opcao);
 
         const item = document.createElement("li"); //cria um item para a lista
 
         item.textContent = opcao; //adiciona ao item da lista o dado inserido
         listagem.appendChild(item); //adiciona esse item a lista
+
+        entrada.value = "";
         }
+}
+
+botaoAdd.addEventListener("click", function(){
+    adicionarOpcao();
 });
 
-//funcionalidades do botão de girar
+//adiciona o texto digitado no input ao array quando pressionar Enter
+entrada.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        adicionarOpcao();
+    }
+});
+
 botaoGirar.addEventListener("click", function() {
 
     //guarda no indice apenas o inteiro do número decimal resultante do cálculo
