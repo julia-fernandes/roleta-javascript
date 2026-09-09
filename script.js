@@ -10,7 +10,7 @@ const listagem = document.getElementById("listagem");
 const itemLista = document.createElement("li");
 const botaoRemover = document.getElementById("botao-remover")
 
-let indice;
+let indice = -1; //atribui um estado absurdo equivalente há "indice sem alterações, sem sorteio ainda"
 
 function adicionarOpcao(){
 
@@ -19,7 +19,8 @@ function adicionarOpcao(){
     //validação do texto inserido
     if(opcao === ""){
         alert("O campo não pode estar vazio!");
-    } else{
+
+    } else {
 
         //armazena o texto inserido no array
         opcoes.push(opcao);
@@ -48,17 +49,27 @@ entrada.addEventListener("keydown", function(event) {
 
 botaoGirar.addEventListener("click", function() {
 
-    //guarda no indice apenas o inteiro do número decimal resultante do cálculo
+    if(!opcoes.length){
+        alert("Sem opções a serem sortadas!")
+
+    } else {
+        //guarda no indice apenas o inteiro do número decimal resultante do cálculo
     indice = Math.floor(Math.random() * opcoes.length);
 
     const resultado = opcoes[indice];
     //guarda o valor referente ao índice
 
     sorteado.textContent = resultado;
+    }
 });
 
 botaoRemover.addEventListener("click", function(){
 
+    //antes de remover valida se a lista de opções está vazia e se não houve sorteio
+    if(!opcoes.length || (indice === -1) ){
+        alert("Sem opções para remover!");
+
+    } else {
     itens[indice].remove(); //remove da lista visível a opção sorteada
     
     //remove o sorteado dos arrays
@@ -66,6 +77,7 @@ botaoRemover.addEventListener("click", function(){
     itens.splice(indice, 1);
 
     sorteado.textContent = ""; //para limpar o resultado quando remover a opção
+    }
 });
 
 /*sobre o cáculo:
