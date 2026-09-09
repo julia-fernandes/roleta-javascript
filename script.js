@@ -1,5 +1,5 @@
-//lista vazia para receber as opções digitadas pelo usuário
-const opcoes = [];
+const opcoes = []; //lista vazia para receber as opções digitadas pelo usuário
+const itens = []; //para gerenciar as opções visíveis em lista
 
 //captura dos elementos html
 const entrada = document.getElementById("entrada");
@@ -8,11 +8,14 @@ const botaoGirar = document.getElementById("botao-girar");
 const sorteado = document.getElementById("resultado");
 const listagem = document.getElementById("listagem");
 const itemLista = document.createElement("li");
+const botaoRemover = document.getElementById("botao-remover")
 
+let indice;
 
 function adicionarOpcao(){
 
     const opcao = entrada.value.trim(); //guarda o texto limpo de espaços externos
+    
     //validação do texto inserido
     if(opcao === ""){
         alert("O campo não pode estar vazio!");
@@ -26,8 +29,10 @@ function adicionarOpcao(){
         item.textContent = opcao; //adiciona ao item da lista o dado inserido
         listagem.appendChild(item); //adiciona esse item a lista
 
+        itens.push(item);
+
         entrada.value = "";
-        }
+    }
 }
 
 botaoAdd.addEventListener("click", function(){
@@ -44,11 +49,23 @@ entrada.addEventListener("keydown", function(event) {
 botaoGirar.addEventListener("click", function() {
 
     //guarda no indice apenas o inteiro do número decimal resultante do cálculo
-    const indice = Math.floor(Math.random() * opcoes.length);
+    indice = Math.floor(Math.random() * opcoes.length);
+
     const resultado = opcoes[indice];
-    //guarda como resultado do sorteio o elemento do array referente ao indice, ao inteiro armazenado
+    //guarda o valor referente ao índice
 
     sorteado.textContent = resultado;
+});
+
+botaoRemover.addEventListener("click", function(){
+
+    itens[indice].remove(); //remove da lista visível a opção sorteada
+    
+    //remove o sorteado dos arrays
+    opcoes.splice(indice, 1);
+    itens.splice(indice, 1);
+
+    sorteado.textContent = ""; //para limpar o resultado quando remover a opção
 });
 
 /*sobre o cáculo:
