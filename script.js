@@ -13,8 +13,6 @@ const botaoFechar = document.getElementById("botao-fechar");
 
 let indice = -1; //atribui um estado absurdo equivalente há "indice sem alterações, sem sorteio ainda"
 
-caixaDestaque.style.display = "none";
-
 function adicionarOpcao() {
   const opcao = entrada.value.trim(); //guarda o texto limpo de espaços externos
 

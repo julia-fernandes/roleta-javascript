@@ -4,18 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roleta</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <h1>Roleta JavaScript</h1>
 
-    <input id="entrada" />
-    <button id="botao-add">Adicionar</button>
-    <hr />
+    <!-- divisões para alinhamento dos elementos -->
+    <div id="tela">
+      <div id="roleta">
+        <div id="circulo"></div>
 
-    <h4>Possibilidades:</h4>
-    <ul id="listagem"></ul>
+        <button id="botao-girar">Girar</button>
+      </div>
 
-    <button id="botao-girar">Girar</button>
+      <div id="opcoes">
+        <input id="entrada" />
+        <button id="botao-add">Adicionar</button>
+        <hr />
+
+        <h4>Possibilidades:</h4>
+        <ul id="listagem"></ul>
+      </div>
+    </div>
 
     <div id="caixa-destaque">
       <p>
