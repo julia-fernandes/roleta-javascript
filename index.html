@@ -1,28 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roleta</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <h1>Roleta JavaScript</h1>
 
-    <input id="entrada">
+    <input id="entrada" />
     <button id="botao-add">Adicionar</button>
-    <hr>
+    <hr />
 
     <h4>Possibilidades:</h4>
     <ul id="listagem"></ul>
 
     <button id="botao-girar">Girar</button>
-    <button id="botao-remover">Remover</button>
 
-    <p>Resultado: 
-        <span id="resultado"></span> <!-- span para agrupar texto-->
-    </p>
-    
+    <div id="caixa-destaque">
+      <p>
+        Resultado: <span id="resultado"></span>
+        <!-- span para agrupar texto-->
+      </p>
+
+      <button id="botao-remover">Remover</button>
+      <button id="botao-fechar">Fechar</button>
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
